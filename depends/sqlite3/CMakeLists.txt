@@ -5,9 +5,7 @@ set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
-include_directories(
-	include/
-)
+include_directories(include/)
 
 file(GLOB_RECURSE SOURCES "src/*.c" "include/*.hpp" "include/*.h")
 
