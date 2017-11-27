@@ -10,21 +10,33 @@
 
 #include <string>
 
+struct sqlite3;
+
 namespace EXP {
 namespace sql {
-    class sqlite3;
-    class connection
-    {
-    public:
-        connection();
-        ~connection();
-        
-        void open(std::string file);
-    private:
-        sqlite3 *db;
-        std::string file;
-        bool is_open;
-    };
+
+class cursor;
+
+class connection
+{
+friend class cursor;
+public:
+    connection(std::string file, bool open = true);
+    ~connection();
+    
+    bool is_open() const;
+    bool open();
+    bool close();
+    
+    std::shared_ptr<cursor> get_cursor() const;
+private:
+    sqlite3 *db;
+    std::string file;
+    bool is_open_;
+    
+    bool exec(const std::string &query) const;
+};
+
 }
 }
 
