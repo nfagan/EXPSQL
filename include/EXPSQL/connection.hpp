@@ -9,6 +9,7 @@
 #define connection_hpp
 
 #include <string>
+#include <memory>
 
 struct sqlite3;
 
