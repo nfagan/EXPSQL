@@ -109,9 +109,9 @@ void test_row()
         std::cout << "OK: Resetted data were registered as not committed." << std::endl;
     }
     
-    std::ifstream test_file_stream(test_file);
+    /*std::ifstream test_file_stream(test_file);
     if (test_file_stream.good());
-        remove(test_file);
+        remove(test_file);*/
 }
 
 #endif /* test__row_h */
